@@ -1,0 +1,68 @@
+{% extends 'movie.html.j2' %}
+
+{% block content %}
+<head>
+    <title>电影影评</title>
+    <link rel="stylesheet" href="4115group project.css">
+    <img src="{{ url_for('static', filename='沙丘：第二部.jpg') }}" width="200" height="300">
+</head>
+<body>
+    <h1>电影簡介</h1>
+
+    <p>《沙丘2》承接第一部劇情，講述保羅·厄崔迪（提摩西·查拉梅Timothée Chalamet 飾）被帕迪沙皇帝和哈克南人聯手滅族後，在厄拉科斯星球遇到弗 雷曼女戰士契妮（贊達亞Zendaya 飾）以及加入弗雷曼人後展開的傳奇旅程。 保羅與讓他家破人亡的陰謀家們開戰，同時面臨著一生所愛與已知宇宙命運的兩難。</p>
+    
+    <h1>基本資料</h1>
+        
+    <p>導演	丹尼·維勒納夫
+        監製	
+        凱爾·波伊特
+        小約瑟·卡拉喬洛
+        瑪麗·帕倫
+        丹尼·維勒納夫
+        編劇	
+        喬·斯派茨
+        丹尼·維勒納夫
+        艾瑞克·羅斯
+        原著	《沙丘》
+        法蘭克·赫伯特作品
+        主演	
+        提摩西·夏勒梅
+        千黛亞
+        蕾貝卡·弗格森
+        喬許·布洛林
+        奧斯汀·巴特勒
+        佛蘿倫絲·普伊
+        戴夫·巴帝斯塔
+        克里斯多夫·華肯
+        史蒂芬·麥特金利·亨德森
+        蕾雅·瑟杜
+        史戴倫·史柯斯嘉
+        夏綠蒂·蘭普琳
+        哈維爾·巴登</p>
+
+    <main>
+        <section>
+            <h2>沙丘：第二部預告片</h2>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/5b6bKqgn7y8" frameborder="0" allowfullscreen></iframe>
+        </section>
+    </main>
+
+    <h2>添加评论</h2>
+
+    <form>
+        <label for="movieTitle">电影标题：</label>
+        <input type="text" id="movieTitle" placeholder="请输入您的标题">
+        <br>
+        <br>
+        <label for="comment">评论内容：</label>
+        <textarea id="comment" placeholder="请输入您的想法"></textarea><br>
+        <button id="submit-btn">提交評論</button>
+    </form>
+
+    <h2>用户评论</h2>
+
+    <ul id="userComments">
+        <!-- 用户评论将由 JavaScript 动态添加 -->
+    </ul>
+</body>
+{% endblock %}

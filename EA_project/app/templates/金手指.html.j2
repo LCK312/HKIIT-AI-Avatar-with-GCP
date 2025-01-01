@@ -1,0 +1,56 @@
+{% extends 'movie.html.j2' %}
+
+{% block content %}
+<head>
+    <title>电影影评</title>
+    <link rel="stylesheet" href="4115group project.css">
+    <img src="{{ url_for('static', filename='金手指.jpg') }}" width="200" height="300">
+</head>
+<body>
+    <h1>电影簡介</h1>
+
+    <p>該電影以1980年代香港作為時空設定，講述上市公司「嘉文集團」幾年間從崛起到清盤，市值蒸發超過一百億的經過，幕後老闆程一言（梁朝偉飾）從崛起到衰落的過程。廉政公署全力動員，經過十五年的搜證和跨境調查，相關訴訟費超過兩億港元，此案並波及香港上流社會以及數宗兇殺案，揭開黃金時代的黑面紗……</p>
+    <h1>基本資料</h1>
+        
+    <p>導演	莊文強
+        監製	黃斌
+        動作指導	錢嘉樂
+        編劇	莊文強
+        主演	
+        梁朝偉
+        劉德華
+        蔡卓妍
+        任達華
+        方中信
+        文仲華
+        太保
+        陳家樂
+        姜皓文
+        白只</p>
+
+    <main>
+        <section>
+            <h2>金手指預告片</h2>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/x3VE106Srzs" frameborder="0" allowfullscreen></iframe>
+        </section>
+    </main>
+
+    <h2>添加评论</h2>
+
+    <form>
+        <label for="movieTitle">电影标题：</label>
+        <input type="text" id="movieTitle" placeholder="请输入您的标题">
+        <br>
+        <br>
+        <label for="comment">评论内容：</label>
+        <textarea id="comment" placeholder="请输入您的想法"></textarea><br>
+        <button id="submit-btn">提交評論</button>
+    </form>
+
+    <h2>用户评论</h2>
+
+    <ul id="userComments">
+        <!-- 用户评论将由 JavaScript 动态添加 -->
+    </ul>
+</body>
+{% endblock %}

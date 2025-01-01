@@ -1,0 +1,62 @@
+{% extends 'movie.html.j2' %}
+
+{% block content %}
+<head>
+    <title>电影影评</title>
+    <link rel="stylesheet" href="4115group project.css">
+     <img src="{{ url_for('static', filename='愛愛愛上你.jpg') }}" alt="愛愛愛上你">
+</head>
+<body>
+    <h1>电影簡介</h1>
+
+    <p>一對貌合神離的俊男美女，在一場舉辦在澳洲的婚禮中，發現自己被親朋好友硬湊成堆，為了不破壞這樁喜事，他們決定暫時攜手合作，繼續扮演眾人眼中的完美情侶。在首支曝光的預告中，席德妮史威尼不吝展現她雄偉上圍的魔鬼身材，與擁有大肌肌的格蘭鮑威爾共同上演一場大騙局。 英國歌手娜塔...</p>
+    <h1>基本資料</h1>
+        
+    <p>導演	威爾·古勒
+        監製	
+        威爾·古勒
+        喬·羅斯
+        傑夫·基申鮑姆
+        劇本	
+        Ilana Wolpert
+        威爾·古勒
+        故事	Ilana Wolpert
+        原著	《都是男人惹的禍》
+        威廉·莎士比亞作品
+        主演	
+        席德妮·史威尼
+        格倫·鮑威爾
+        雅莉珊卓·希普
+        GaTa
+        哈德利·羅賓遜
+        米歇爾·赫德
+        德蒙特·莫羅尼
+        達倫·巴奈特
+        雷切爾·格里菲思</p>
+
+    <main>
+        <section>
+            <h2>愛愛愛上你預告片</h2>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/3LHdUrdPIMw" frameborder="0" allowfullscreen></iframe>
+        </section>
+    </main>
+
+    <h2>添加评论</h2>
+
+    <form>
+        <label for="movieTitle">电影标题：</label>
+        <input type="text" id="movieTitle" placeholder="请输入您的标题">
+        <br>
+        <br>
+        <label for="comment">评论内容：</label>
+        <textarea id="comment" placeholder="请输入您的想法"></textarea><br>
+        <button id="submit-btn">提交評論</button>
+    </form>
+
+    <h2>用户评论</h2>
+
+    <ul id="userComments">
+        <!-- 用户评论将由 JavaScript 动态添加 -->
+    </ul>
+</body>
+{% endblock %}

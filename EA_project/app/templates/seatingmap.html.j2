@@ -1,0 +1,187 @@
+{% extends 'base.html.j2' %}
+
+{% block content %}
+<div class="logo-row">
+            <a href="{{ url_for('index') }}">
+                <img src="https://www.asia.ccb.com/hongkong_tc/personal/credit_cards/promotions/cinemas-offers/images/broadway-circuit-logo.jpg"
+                     alt="Logo"
+                     class="logo"
+                     style="width: 200px"></a>
+</div>
+
+<head>
+    <title>電影座位圖</title>
+     <style>
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            display: flex;
+            justify-content: flex-start;
+        }
+
+        td {
+            padding: 10px;
+            border: 1px solid black;
+            text-align: center;
+        }
+
+        .booked {
+            background-color: gray;
+            color: white;
+        }
+
+        .available {
+            background-color: green;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <h1>電影座位圖</h1>
+
+    <table>
+        <tr>
+            <td></td>
+            <td>A1</td>
+            <td>A2</td>
+            <td>A3</td>
+            <td>A4</td>
+            <td>A5</td>
+            <td>A6</td>
+            <td>B1</td>
+            <td>B2</td>
+            <td>B3</td>
+            <td>B4</td>
+            <td>B5</td>
+            <td>B6</td>
+            <td>C1</td>
+            <td>C2</td>
+            <td>C3</td>
+            <td>C4</td>
+            <td>C5</td>
+            <td>C6</td>
+            <td>D1</td>
+            <td>D2</td>
+            <td>D3</td>
+            <td>D4</td>
+            <td>D5</td>
+            <td>D6</td>
+            <td>E1</td>
+            <td>E2</td>
+            <td>E3</td>
+            <td>E4</td>
+            <td>E5</td>
+            <td>E6</td>
+            <!-- 其他座位 -->
+        </tr>
+        <tr>
+            <td>正常票</td>
+            <td class="available">$100</td>
+            <td class="available">$100</td>
+            <td class="available">$100</td>
+            <td class="available">$100</td>
+            <td class="available">$100</td>
+            <td class="available">$100</td>
+            <td class="available">$100</td>
+            <td class="available">$100</td>
+            <td class="available">$100</td>
+            <td class="available">$100</td>
+            <td class="booked">已售</td>
+            <td class="available">$100</td>
+            <td class="available">$100</td>
+            <td class="available">$100</td>
+            <td class="booked">已售</td>
+            <td class="booked">已售</td>
+            <td class="booked">已售</td>
+            <td class="available">$100</td>
+            <td class="available">$100</td>
+            <td class="booked">已售</td>
+            <td class="available">$100</td>
+            <td class="available">$100</td>
+            <td class="available">$100</td>
+            <td class="available">$100</td>
+            <td class="booked">已售</td>
+            <td class="available">$100</td>
+            <td class="booked">已售</td>
+            <td class="booked">已售</td>
+            <td class="available">$100</td>
+            <td class="booked">已售</td>
+            <!-- 其他座位價格 -->
+        </tr>
+        <tr>
+            <td>學生/長者票</td>
+            <td class="available">$80</td>
+            <td class="available">$80</td>
+            <td class="available">$80</td>
+            <td class="available">$80</td>
+            <td class="available">$80</td>
+            <td class="available">$80</td>
+            <td class="available">$80</td>
+            <td class="available">$80</td>
+            <td class="available">$80</td>
+            <td class="available">$80</td>
+            <td class="booked">已售</td>
+            <td class="available">$80</td>
+            <td class="available">$80</td>
+            <td class="available">$80</td>
+            <td class="booked">已售</td>
+            <td class="booked">已售</td>
+            <td class="booked">已售</td>
+            <td class="available">$80</td>
+            <td class="available">$80</td>
+            <td class="booked">已售</td>
+            <td class="available">$80</td>
+            <td class="available">$80</td>
+            <td class="available">$80</td>
+            <td class="available">$80</td>
+            <td class="booked">已售</td>
+            <td class="available">$80</td>
+            <td class="booked">已售</td>
+            <td class="booked">已售</td>
+            <td class="available">$80</td>
+            <td class="booked">已售</td>
+            <!-- 其他座位價格 -->
+        </tr>
+        <!-- 其他排 -->
+    </table>
+
+    <br><br>
+
+    <a href="{{ url_for('settlement') }}" style="text-decoration: none;">
+    <button type="button">預訂</button>
+    </a>
+
+    <h1>電影票資訊</h1>
+
+    <p>毒舌大狀</p>
+    <p>票價：$100</p>
+    <p>學生票價：$80</p>
+    <p>長者票價：$80</p>
+    <p>剩餘座位：21個</p>
+
+    <p>座位選擇：</p>
+    <select>
+        <option value="1">座位A1</option>
+        <option value="2">座位A2</option>
+        <option value="3">座位A3</option>
+        <option value="4">座位A4</option>
+        <option value="5">座位A5</option>
+        <option value="6">座位A6</option>
+        <option value="7">座位B1</option>
+        <option value="8">座位B2</option>
+        <option value="9">座位B3</option>
+        <option value="10">座位B4</option>
+        <option value="11">座位B6</option>
+        <option value="13">座位C1</option>
+        <option value="14">座位C2</option>
+        <option value="15">座位C6</option>
+        <option value="16">座位D1</option>
+        <option value="16">座位D3</option>
+        <option value="16">座位D4</option>
+        <option value="16">座位D5</option>
+        <option value="16">座位D6</option>
+        <option value="16">座位E2</option>
+        <option value="16">座位E5</option>
+    </select>
+</body>
+{% endblock %}
