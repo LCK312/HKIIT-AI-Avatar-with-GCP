@@ -1,0 +1,62 @@
+{% extends 'movie.html.j2' %}
+
+{% block content %}
+<head>
+    <title>电影影评</title>
+    <link rel="stylesheet" href="4115group project.css">
+    <img src="{{ url_for('static', filename='哥吉拉與金剛：新帝國.jpg') }}" width="200" height="300">
+</head>
+<body>
+    <h1>电影簡介</h1>
+
+    <p>《哥吉拉大戰金剛》導演亞當溫高德再度執導，並由《夜之屋》蕾貝卡霍爾、《子彈列車》布萊恩泰瑞亨利、丹史蒂文斯、《哥吉拉大戰金剛》凱莉霍特爾、《蝙蝠俠》亞歷克斯費恩斯和《尚氣與十環傳奇》陳法拉主演。
+
+    史詩級的戰鬥仍持續進行中！傳奇影業的怪獸宇宙系列繼《哥吉拉大戰金剛》的爆炸性對決後，再度推出全新冒險故事；全能的金剛和駭人的哥吉拉即將聯手對抗隱藏在我們世界中未被發現的巨大威脅，那不僅挑戰了牠們的生存空間，更威脅了人類的存亡。《哥吉拉與金剛：新帝國》將深入探討這些泰坦巨獸的歷史、起源，以及骷髏島及其他秘境的奧秘，同時揭開塑造這些非凡生物，並將牠們與人類永遠連結在一起的神話戰鬥。
+
+    在《哥吉拉與金剛：新帝國》中，哥吉拉與金剛將聯手對抗強大的新威脅刀疤王，導演亞當溫高德笑說：「刀疤王，牠是典型的邪惡獨裁者，世界各地和整個歷史上的文明都有各自版本的邪惡獨裁者。我認為刀疤王是種古老的邪惡，代表人性最陰暗的那一面。」</p>
+
+    <h1>基本資料</h1>
+    <p>導演	亞當·溫高德
+        監製	
+        亞歷克斯·加西亞
+        艾瑞克·麥克利奧德
+        湯瑪士·塔爾
+        強·賈希尼
+        劇本	
+        泰瑞·羅西奧
+        賽門·巴雷特
+        傑瑞米·史列特
+        主演	
+        蕾貝卡·霍爾
+        布萊恩·泰瑞·亨利
+        丹·史蒂文斯
+        凱莉·霍特爾
+        艾力克斯·福恩斯
+        陳法拉</p>
+
+    <main>
+        <section>
+            <h2>哥吉拉與金剛：新帝國預告片</h2>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/zkpMEzz19RA" frameborder="0" allowfullscreen></iframe>
+        </section>
+    </main>
+
+    <h2>添加评论</h2>
+
+    <form>
+        <label for="movieTitle">电影标题：</label>
+        <input type="text" id="movieTitle" placeholder="请输入您的标题">
+        <br>
+        <br>
+        <label for="comment">评论内容：</label>
+        <textarea id="comment" placeholder="请输入您的想法"></textarea><br>
+        <button id="submit-btn">提交評論</button>
+    </form>
+
+    <h2>用户评论</h2>
+
+    <ul id="userComments">
+        <!-- 用户评论将由 JavaScript 动态添加 -->
+    </ul>
+</body>
+{% endblock %}

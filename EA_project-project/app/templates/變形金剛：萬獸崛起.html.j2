@@ -1,0 +1,63 @@
+{% extends 'movie.html.j2' %}
+
+{% block content %}
+<head>
+    <title>电影影评</title>
+    <link rel="stylesheet" href="4115group project.css">
+    <img src="{{ url_for('static', filename='變形金剛：萬獸崛起.jpg') }}" width="200" height="300">
+</head>
+<body>
+    <h1>电影簡介</h1>
+
+    <p>故事設定在1994年，講述了地球上的戰爭不再只有汽車人和霸天虎，巨無霸、原始獸和龍頭部隊等更多角色也將加入其中，展現更多維的變形金剛真人宇宙， 並將超能勇士、霹靂派和龍頭部隊引入汽車人和霸天虎之間的地球大戰。
+    汽車人與霸天虎在幾個世紀以前，就已經處於戰爭中。 他們的後代巨無霸和原始獸，則將新一輪的戰鬥推向了史前時代。 在尋找新能源的途中，霸王龍指揮原始獸通過時空跳躍來到史前地球，而巨無霸也跟著擎天聖來到了地球。 此後，霸王龍發現了汽車人留在地球的戰艦方舟號，為了改變霸天虎戰敗的事實，霸王龍試圖摧毀處在沉睡中的擎天柱，引發新一輪的戰爭。</p>
+    <h1>基本資料</h1>
+        
+    <p>導演	小史蒂芬·卡普爾
+        監製	
+        洛倫佐·迪·波納文圖拉
+        湯姆·迪森托
+        唐·墨菲
+        馬克·瓦拉迪安
+        麥可·貝
+        劇本	
+        喬比·哈諾德
+        達內爾·梅耶爾
+        喬許·彼得斯
+        埃里希·赫伯
+        喬恩·赫伯
+        故事	喬比·哈諾德
+        原著	變形金剛
+        孩之寶作品
+        主演	
+        安東尼·拉莫斯
+        多米妮可·斐許巴克
+        蘿倫·維萊斯
+        托貝·紐維吉</p>
+
+    <main>
+        <section>
+            <h2>變形金剛：萬獸崛起預告片</h2>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/Mf7n43tLrRs" frameborder="0" allowfullscreen></iframe>
+        </section>
+    </main>
+
+    <h2>添加评论</h2>
+
+    <form>
+        <label for="movieTitle">电影标题：</label>
+        <input type="text" id="movieTitle" placeholder="请输入您的标题">
+        <br>
+        <br>
+        <label for="comment">评论内容：</label>
+        <textarea id="comment" placeholder="请输入您的想法"></textarea><br>
+        <button id="submit-btn">提交評論</button>
+    </form>
+
+    <h2>用户评论</h2>
+
+    <ul id="userComments">
+        <!-- 用户评论将由 JavaScript 动态添加 -->
+    </ul>
+</body>
+{% endblock %}

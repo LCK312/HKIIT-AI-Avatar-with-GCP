@@ -1,0 +1,14 @@
+{% extends "index.html.j2" %}
+{% import 'bootstrap/wtf.html' as wtf %}
+
+<head>
+    <title>支付成功</title>
+</head>
+{% block content %}
+    <h1>支付成功</h1>
+    <h2>請使用以下二維碼到自動取票機取票</h2>
+    <div>
+    <img src="{{ url_for('static', filename='電影票.png') }}" alt="電影票">
+    </div>
+    <h3>感谢您的購買！</h3>
+{% endblock %}

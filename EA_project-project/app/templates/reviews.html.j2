@@ -1,0 +1,68 @@
+{% extends "index.html.j2" %}
+
+{% block content %}
+<head>
+    <title>电影影评</title>
+    <link rel="stylesheet" href="4115group project.css">
+    <img src="{{ url_for('static', filename='毒舌大狀2023.jpg') }}" alt="毒舌大狀2023" width="200" height="300">
+</head>
+<body>
+    <h1>电影簡介</h1>
+
+    <p>由兩年前（2002年）裁判官轉職的大律師林涼水（黃子華飾）於首單案件為客戶曾潔兒（王丹妮飾）處理虐兒案時，因一次失誤，令曾潔兒被判誤殺罪被判監17年，從此愧疚萬分，將事務所從律師樓重鎮的中環遷移至旺角唐樓，其名聲亦從此一沉百踩。
+
+        兩年後（2004年），一次意外令林涼水發現當年曾潔兒案件的新證據，為彌補當年錯失及贖罪，找回其師爺太子（何啟華飾）及當年合作的大律師方家軍（楊偲泳飾）去重新翻案。但林涼水一行人要面對的，卻是當年曾潔兒的死對頭兼其外遇對象的妻子、首富千金的鍾念華（廖子妤飾），以及其財雄勢大的背後勢力……
+        
+        面對多方勢力的威脅，林涼水到底如何見招拆招，為曾潔兒洗脫罪名？</p>
+    <h1>基本資料</h1>
+        
+    <p>導演	吳煒倫
+        監製	江志強
+        何韻明
+        動作指導	雷德偉
+        編劇	吳煒倫
+        鍾凱婷（劇本顧問）
+        林偉文
+        張雲青
+        主演	
+        黃子華
+        謝君豪
+        王丹妮
+        廖子妤
+        王敏德
+        何啟華
+        楊偲泳
+        栢天男
+        林保怡
+        谷德昭
+        羅孝勇
+        配樂	廖頴琛
+        區樂恆
+        張戩仁</p>
+
+    <main>
+        <section>
+            <h2>毒蛇大狀預告片</h2>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/DYJ828h8k4M" frameborder="0" allowfullscreen></iframe>
+        </section>
+    </main>
+
+    <h2>添加评论</h2>
+
+    <form>
+        <label for="movieTitle">电影标题：</label>
+        <input type="text" id="movieTitle" placeholder="请输入您的标题">
+        <br>
+        <br>
+        <label for="comment">评论内容：</label>
+        <textarea id="comment" placeholder="请输入您的想法"></textarea><br>
+        <button id="submit-btn">提交評論</button>
+    </form>
+
+    <h2>用户评论</h2>
+
+    <ul id="userComments">
+        <!-- 用戶評論將由 JavaScript 動態添加 -->
+    </ul>
+</body>
+{% endblock %}

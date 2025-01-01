@@ -1,0 +1,57 @@
+{% extends 'movie.html.j2' %}
+
+{% block content %}
+<head>
+    <title>电影影评</title>
+    <link rel="stylesheet" href="4115group project.css">
+    <img src="{{ url_for('static', filename='可憐的東西.jpg') }}" width="200" height="300">
+</head>
+<body>
+    <h1>电影簡介</h1>
+
+    <p>《可憐的東西》榮獲本屆金球獎2項大獎，包括最佳電影(音樂/喜劇組)及最佳女主角(音樂/喜劇組)，威尼斯影展金獅獎提名，更是問鼎奧斯卡大熱之作。出爐影后愛瑪史東，再度夥拍《爭寵》金像提名鬼才導演尤格藍西莫及幕後班底，超越前作、大膽突破的全新嘗試，絕對令人期待！不幸身亡的年輕女子(Bella)（愛瑪史東）被古怪科學家（威廉迪福）救活，賦予全新生命。復活後的貝拉，成熟女性外表之下是猶如小孩的心智，天真好奇、隨心縱慾、不受束縛，對未知的世界如饑似渴，因而與縱情聲色的律師（麥克雷法路）私奔，追求極致的自由⋯⋯</p>
+    <h1>基本資料</h1>
+        
+    <p>導演	尤格·藍西莫
+        監製	
+        尤格·藍西莫
+        艾瑪·史東
+        埃德·吉尼
+        安德魯·洛
+        劇本	托尼·麥克納馬拉
+        原著	《可憐的東西》
+        阿拉斯代爾·格雷作品
+        主演	
+        艾瑪·史東
+        馬克·魯法洛
+        威廉·達佛
+        拉米·優素福
+        克里斯多福·阿伯特
+        傑洛·卡麥克</p>
+
+    <main>
+        <section>
+            <h2>可憐的東西預告片</h2>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/ddiYNHQLz5Q" frameborder="0" allowfullscreen></iframe>
+        </section>
+    </main>
+
+    <h2>添加评论</h2>
+
+    <form>
+        <label for="movieTitle">电影标题：</label>
+        <input type="text" id="movieTitle" placeholder="请输入您的标题">
+        <br>
+        <br>
+        <label for="comment">评论内容：</label>
+        <textarea id="comment" placeholder="请输入您的想法"></textarea><br>
+        <button id="submit-btn">提交評論</button>
+    </form>
+
+    <h2>用户评论</h2>
+
+    <ul id="userComments">
+        <!-- 用户评论将由 JavaScript 动态添加 -->
+    </ul>
+</body>
+{% endblock %}

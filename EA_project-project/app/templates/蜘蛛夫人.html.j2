@@ -1,0 +1,65 @@
+{% extends 'movie.html.j2' %}
+
+{% block content %}
+<head>
+    <title>电影影评</title>
+    <link rel="stylesheet" href="4115group project.css">
+    <img src="{{ url_for('static', filename='蜘蛛夫人.jpg') }}" width="200" height="300">
+</head>
+<body>
+    <h1>电影簡介</h1>
+
+    <p>嘉絲在某次救護行動發生意外後得到預視能力，能看到即將發生的致命危機，這異能更令她與三位陌生女孩的命運交織。嘉絲被迫面對自己的過去，亦必須搞清楚與擁有強大力量的女孩們之間的複雜關係，帶領她們在有限時間內對抗未知的強敵！</p>
+    
+    <h1>基本資料</h1>
+        
+    <p>導演	S·J·克拉克森
+        監製	洛倫佐·迪·波納文圖拉
+        劇本	
+        麥特·薩扎瑪
+        柏克·沙普利斯
+        克萊兒·帕克
+        S·J·克拉克森
+        故事	
+        凱雷姆·桑加
+        麥特·薩扎瑪
+        伯克·夏普萊斯
+        原著	《蜘蛛夫人》
+        丹尼·奧尼歐
+        小約翰·羅米蒂作品
+        主演	
+        達珂塔·強生
+        席德妮·史威尼
+        賽麗絲·歐康納
+        伊莎貝拉·莫娜
+        塔哈·拉辛
+        馬克·伊皮斯
+        艾瑪·羅勃茲
+        亞當·史考特</p>
+
+    <main>
+        <section>
+            <h2>蜘蛛夫人預告片</h2>
+           <iframe width="560" height="315" src="https://www.youtube.com/embed/2GHqjdoGkxE" frameborder="0" allowfullscreen></iframe>
+        </section>
+    </main>
+
+    <h2>添加评论</h2>
+
+    <form>
+        <label for="movieTitle">电影标题：</label>
+        <input type="text" id="movieTitle" placeholder="请输入您的标题">
+        <br>
+        <br>
+        <label for="comment">评论内容：</label>
+        <textarea id="comment" placeholder="请输入您的想法"></textarea><br>
+        <button id="submit-btn">提交評論</button>
+    </form>
+
+    <h2>用户评论</h2>
+
+    <ul id="userComments">
+        <!-- 用户评论将由 JavaScript 动态添加 -->
+    </ul>
+</body>
+{% endblock %}
