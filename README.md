@@ -1,1 +1,0 @@
-# HKIIT-AI-Avatar-with-GCP
