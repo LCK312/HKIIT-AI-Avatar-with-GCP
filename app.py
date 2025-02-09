@@ -1,8 +1,8 @@
 from flask import Flask, render_template, request, redirect, url_for, flash
-from flask_login import current_user
+from flask_login import current_user  
 from itsdangerous import URLSafeTimedSerializer, SignatureExpired, BadSignature
 import os
-
+from datetime import date 
 
 app = Flask(__name__)
 # Provide default values when environment variables are not set to avoid program crashes
@@ -79,7 +79,7 @@ def reset_password(token):
 
         # Here, you would update the user's password in your database.
         # Use a strong password hashing algorithm like bcrypt.
-        # Example (replace with your actual database update):
+        # (replace with your actual database update):
         print(f"Password reset for {email} with new password (hashed): {new_password}")
         flash('Your password has been reset successfully!', 'success') #Provide feedback
 
@@ -87,7 +87,7 @@ def reset_password(token):
 
     return render_template('reset_password.html.j2', token_valid=True, token=token)
 
-@app.route('/forgot_password', methods=['GET', 'POST'])
+@app.route('/reset_password_request', methods=['GET', 'POST'])
 def forgot_password():
     if request.method == 'POST':
         email = request.form['email']
@@ -98,7 +98,7 @@ def forgot_password():
         flash('Check your email to reset your password', 'info') # Feedback for user
 
         return redirect(url_for('index')) #Redirect to home or informational page
-    return render_template('forgot_password.html.j2')
+    return render_template('reset_password_request.html.j2')
 
 @app.route('/reviews')
 def reviews():
@@ -112,9 +112,18 @@ def reviewa():
 def payment():
     return render_template('payment.html.j2')
 
+# Sample movie data (replace with your database or data source)
+movies = [
+    {'id': 1, 'title': '獅子王：木法沙(英語版)', 'description': '經典動畫重製', 'showtimes': ['10:00', '13:00', '16:00'], 'date': date(2024, 7, 1)},
+    {'id': 2, 'title': '「進擊的巨人」完結篇THE LAST ATTACK', 'description': '史詩動畫完結', 'showtimes': ['11:00', '14:00', '17:00'], 'date': date(2024, 7, 1)},
+    {'id': 3, 'title': '明日邊界', 'description': '阿湯哥經典科幻片', 'showtimes': ['12:00', '15:00', '18:00'], 'date': date(2024, 7, 2)},
+]
+
 @app.route('/daymovie')
 def daymovie():
-    return render_template('daymovie.html.j2')
+    today = date.today()
+    today_movies = [movie for movie in movies if movie['date'] == today] #Filter the movies based on the current date
+    return render_template('daymovie.html.j2', movies=today_movies) #Pass the filtered movies to the template
 
 @app.route('/seatingmap')
 def seatingmap():
@@ -123,6 +132,16 @@ def seatingmap():
 @app.route('/settlement')
 def settlement():
     return render_template('settlement.html.j2')
+
+# Custom error handler for 404 errors
+@app.errorhandler(404)
+def page_not_found(e):
+    return render_template('404.html.j2'), 404
+
+# Custom error handler for 500 errors (Internal Server Error)
+@app.errorhandler(500)
+def internal_server_error(e):
+    return render_template('500.html.j2'), 500
 
 if __name__ == '__main__':
     app.run(debug=True)
