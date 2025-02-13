@@ -1,10 +1,11 @@
 from flask import Flask, render_template, request, redirect, url_for, flash
-from flask_login import current_user  
+from flask_login import current_user  # Assuming using Flask-Login
 from itsdangerous import URLSafeTimedSerializer, SignatureExpired, BadSignature
 import os
-from datetime import date 
+from datetime import date
 
 app = Flask(__name__)
+
 # Provide default values when environment variables are not set to avoid program crashes
 app.config['SECRET_KEY'] = os.getenv('APP_SECRET_KEY', 'your_default_secret_key')
 app.config['SECURITY_PASSWORD_SALT'] = os.getenv('SECURITY_PASSWORD_SALT', 'your_default_salt')
@@ -56,7 +57,7 @@ def register():
         if password != confirm_password:
             return render_template('register.html.j2', error='Passwords do not match')
 
-        # Add your user registration logic here (e.g., save to database)
+        # Add user registration logic here (e.g., save to database)
         # ...
 
         # If registration is successful, redirect to login
@@ -77,9 +78,9 @@ def reset_password(token):
         if new_password != confirm_password:
             return render_template('reset_password.html.j2', token_valid=True, token=token, error='Passwords do not match')
 
-        # Here, you would update the user's password in your database.
+        # Here would update the user's password in database.
         # Use a strong password hashing algorithm like bcrypt.
-        # (replace with your actual database update):
+        # (replace with actual database update):
         print(f"Password reset for {email} with new password (hashed): {new_password}")
         flash('Your password has been reset successfully!', 'success') #Provide feedback
 
@@ -112,7 +113,7 @@ def reviewa():
 def payment():
     return render_template('payment.html.j2')
 
-# Sample movie data (replace with your database or data source)
+# Sample movie data (replace with database or data source)
 movies = [
     {'id': 1, 'title': '獅子王：木法沙(英語版)', 'description': '經典動畫重製', 'showtimes': ['10:00', '13:00', '16:00'], 'date': date(2024, 7, 1)},
     {'id': 2, 'title': '「進擊的巨人」完結篇THE LAST ATTACK', 'description': '史詩動畫完結', 'showtimes': ['11:00', '14:00', '17:00'], 'date': date(2024, 7, 1)},
@@ -132,6 +133,18 @@ def seatingmap():
 @app.route('/settlement')
 def settlement():
     return render_template('settlement.html.j2')
+
+#  NEW: Cinema Location Route
+@app.route('/cinema_location')
+def cinema_location():
+    # Might want to pass data to the template, like a list of cinema locations
+    cinema_locations = [
+        {'name': 'Cinema A', 'address': '123 Main St'},
+        {'name': 'Cinema B', 'address': '456 Oak Ave'},
+    ]  # Replace with actual data source
+
+    return render_template('cinema_location.html.j2', locations=cinema_locations)
+
 
 # Custom error handler for 404 errors
 @app.errorhandler(404)
