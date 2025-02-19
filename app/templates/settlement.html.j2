@@ -1,0 +1,41 @@
+{% extends "base.html.j2" %}
+
+{% block title %}結算 - 百老匯影院{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1>訂單結算</h1>
+
+    {% if booking_details %}
+        <h2>訂單明細</h2>
+        <p>電影: {{ booking_details.movie_title }}</p>
+        <p>放映時間: {{ booking_details.showtime }}</p>
+        <p>座位: {{ booking_details.seats }}</p>
+        <p>總金額: ${{ booking_details.total_amount }}</p>
+
+        <h2>付款方式</h2>
+        <form action="/process_payment" method="post">
+            <div class="form-group">
+                <label for="card_number">信用卡號碼:</label>
+                <input type="text" id="card_number" name="card_number" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label for="expiry_date">信用卡有效期:</label>
+                <input type="text" id="expiry_date" name="expiry_date" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label for="cvv">CVV:</label>
+                <input type="text" id="cvv" name="cvv" class="form-control" required>
+            </div>
+
+            <input type="hidden" name="movie_id" value="{{ booking_details.movie_id }}">
+            <input type="hidden" name="seats" value="{{ booking_details.seats }}">
+            <input type="hidden" name="total_amount" value="{{ booking_details.total_amount }}">
+
+            <button type="submit" class="btn btn-primary">確認付款</button>
+        </form>
+    {% else %}
+        <p>訂單信息錯誤。</p>
+    {% endif %}
+</div>
+{% endblock %}
