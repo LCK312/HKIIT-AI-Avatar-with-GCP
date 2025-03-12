@@ -1,0 +1,15 @@
+.container {
+    background-color: #f0f0f0;
+    padding: 20px;
+}
+
+.showtimes table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.showtimes th, .showtimes td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}

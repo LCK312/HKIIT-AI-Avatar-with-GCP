@@ -5,7 +5,7 @@ const app = express();
 
 // Database connection
 const db = mysql.createConnection({
-    host: 'localhost',
+    host: 'moviedb.clz4nwfjzhzj.us-east-1.rds.amazonaws.com',
     user: 'root',
     password: 'Iloveshoto11',
     database: 'MovieWebsite',
@@ -46,6 +46,6 @@ app.post('/api/ratings', (req, res) => {
 });
 
 // Start server
-app.listen(3000, () => {
-    console.log('伺服器運行在 http://localhost:3000');
+app.listen(3306, () => {
+    console.log('伺服器運行在 http://127.0.0.1:3306');
 });
