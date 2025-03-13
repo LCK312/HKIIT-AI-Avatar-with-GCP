@@ -1,0 +1,211 @@
+/* 登錄頁面專屬樣式 */
+.login-page {
+    max-width: 400px;
+    margin: 50px auto;
+    padding: 30px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.login-page h1 {
+    color: #1a73e8;
+    font-size: 32px;
+    margin-bottom: 30px;
+}
+
+.login-page .form-group {
+    margin-bottom: 20px;
+}
+
+.login-page .form-control {
+    padding: 12px;
+    border: 2px solid #e0e0e0;
+    border-radius: 6px;
+    font-size: 16px;
+    transition: border-color 0.3s ease;
+}
+
+.login-page .form-control:focus {
+    border-color: #1a73e8;
+    outline: none;
+    box-shadow: 0 0 5px rgba(26, 115, 232, 0.3);
+}
+
+.login-page .btn-primary {
+    background-color: #1a73e8;
+    padding: 12px 30px;
+    font-size: 16px;
+    width: 100%;
+    transition: background-color 0.3s ease;
+}
+
+.login-page .btn-primary:hover {
+    background-color: #1557b0;
+}
+
+.login-page p {
+    text-align: center;
+    color: #666;
+    margin-top: 20px;
+}
+
+.login-page a {
+    color: #1a73e8;
+    text-decoration: none;
+}
+
+.login-page a:hover {
+    text-decoration: underline;
+}
+
+/* 支付頁面專屬樣式 */
+.payment-page {
+    max-width: 500px;
+    margin: 50px auto;
+    padding: 40px;
+    background: linear-gradient(135deg, rgba(52, 152, 219, 0.7), rgba(255, 255, 255, 0.9)); /* 藍白漸變 */
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2), 0 0 20px rgba(52, 152, 219, 0.4); /* 陰影與藍色協調 */
+    backdrop-filter: blur(15px); /* 保持玻璃質感 */
+    border: 1px solid rgba(52, 152, 219, 0.5); /* 藍色邊框 */
+    animation: fadeIn 0.6s ease-in-out;
+    position: relative;
+    overflow: hidden;
+}
+
+.payment-page::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(45deg, #3498db, #9b59b6, #e74c3c, #f1c40f);
+    background-size: 400% 400%;
+    animation: gradientShift 10s ease infinite;
+    z-index: -1;
+    opacity: 0.1;
+}
+
+.payment-page .title {
+    color: #2c3e50; /* 深色文字以保證對比 */
+    text-align: center;
+    font-size: 32px;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.payment-page .subtitle {
+    text-align: center;
+    color: #666; /* 深灰色副標題 */
+    margin-bottom: 30px;
+    font-size: 16px;
+    opacity: 0.9;
+}
+
+.payment-page .input-group {
+    position: relative;
+    margin-bottom: 25px;
+}
+
+.payment-page .input-group label {
+    display: block;
+    font-weight: 600;
+    color: #34495e;
+    margin-bottom: 8px;
+    font-size: 14px;
+}
+
+.payment-page .input-group input {
+    width: 100%;
+    padding: 12px 40px 12px 15px;
+    border: none;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.8); /* 略深的白色背景以區分 */
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+    font-size: 16px;
+    color: #2c3e50;
+    transition: all 0.3s ease;
+}
+
+.payment-page .input-group input:focus {
+    background: rgba(255, 255, 255, 1);
+    box-shadow: 0 0 10px rgba(52, 152, 219, 0.5); /* 藍色聚焦效果 */
+    outline: none;
+}
+
+.payment-page .input-icon {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #3498db; /* 與藍色背景協調 */
+    font-size: 18px;
+}
+
+.payment-page .submit-btn {
+    width: 100%;
+    padding: 12px;
+    background: linear-gradient(90deg, #3498db, #9b59b6); /* 按鈕漸變保持不變 */
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.payment-page .submit-btn::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.2);
+    transition: left 0.5s ease;
+}
+
+.payment-page .submit-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(52, 152, 219, 0.4); /* 與藍色背景協調 */
+}
+
+.payment-page .submit-btn:hover::after {
+    left: 100%;
+}
+
+/* 動畫定義 */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes gradientShift {
+    0% { background-position: 0% 0%; }
+    50% { background-position: 100% 100%; }
+    100% { background-position: 0% 0%; }
+}
+
+/* 響應式設計 */
+@media (max-width: 600px) {
+    .payment-page {
+        margin: 20px;
+        padding: 20px;
+    }
+
+    .payment-page .title {
+        font-size: 24px;
+    }
+
+    .payment-page .submit-btn {
+        padding: 10px;
+    }
+}

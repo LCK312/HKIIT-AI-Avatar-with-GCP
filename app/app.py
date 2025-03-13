@@ -1,9 +1,9 @@
 from flask import Flask, render_template, request, redirect, url_for, flash
-from flask_login import LoginManager, UserMixin, login_required, login_user, logout_user, current_user # Assuming using Flask-Login
+from flask_login import LoginManager, UserMixin, login_required, login_user, logout_user, current_user
 from itsdangerous import URLSafeTimedSerializer, SignatureExpired, BadSignature
 import os
 from datetime import date
-from flask_bcrypt import Bcrypt # Import Flask-Bcrypt for password hashing
+from flask_bcrypt import Bcrypt
 
 app = Flask(__name__)
 
@@ -17,56 +17,40 @@ bcrypt = Bcrypt(app)
 # Flask-Login setup
 login_manager = LoginManager()
 login_manager.init_app(app)
-login_manager.login_view = 'login'  # Redirect to login page if not logged in
+login_manager.login_view = 'login'
 
 # Serializer
-try:
-    serializer = URLSafeTimedSerializer(app.config['SECRET_KEY'])
-except KeyError as e:
-    print(f"Error initializing serializer: Missing config key {e}")
-    serializer = None
+serializer = URLSafeTimedSerializer(app.config['SECRET_KEY'])
 
-# User Model (Example - replace with your database model)
-class User(UserMixin):  # Inherit from UserMixin for Flask-Login
+# User Model (Example)
+class User(UserMixin):
     def __init__(self, id, username, email, password):
-        self.id = str(id)  # Flask-Login expects ID to be a string
+        self.id = str(id)
         self.username = username
         self.email = email
-        self.password = password # Store hashed password, not plain text
+        self.password = password
 
-# User Loader (required for Flask-Login)
+# User Loader
 @login_manager.user_loader
 def load_user(user_id):
-    # Replace this with your database lookup to get the user
-    # from the database based on the user_id
-    # Example:
-    # user = User.query.get(int(user_id)) # if using SQLAlchemy
-    # return user
-    # For this example, creating dummy users
     if user_id == '1':
         return User(id=1, username='testuser', email='test@example.com', password=bcrypt.generate_password_hash('password').decode('utf-8'))
     return None
 
 # Password reset functions
 def generate_reset_token(email):
-    if serializer is None:
-        print("Serializer is not initialized, cannot generate token.")
-        return None
     return serializer.dumps(email, salt=app.config['SECURITY_PASSWORD_SALT'])
 
 def verify_reset_token(token, expiration=3600):  # Token expires in 1 hour
-    if serializer is None:
-        print("Serializer is not initialized, cannot verify token.")
-        return None
     try:
         email = serializer.loads(token, salt=app.config['SECURITY_PASSWORD_SALT'], max_age=expiration)
         return email
     except SignatureExpired:
-        print("Token has expired.")  # Add Log
-        return None  # Token has expired
+        print("Token has expired.")
+        return None
     except BadSignature:
-        print("Invalid token.")  # Add Log
-        return None  # Invalid token
+        print("Invalid token.")
+        return None
 
 # Routes
 @app.route('/')

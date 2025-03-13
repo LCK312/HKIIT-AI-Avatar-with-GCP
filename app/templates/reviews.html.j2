@@ -3,6 +3,19 @@
 {% block title %}獅子王：木法沙(英語版) - 評論{% endblock %}
 
 {% block content %}
+<style>
+    .showtimes table {
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    .showtimes th, .showtimes td {
+        border: 1px solid #ddd;
+        padding: 8px;
+        text-align: left;
+    }
+</style>
+
 <div class="container">
   <h1>獅子王：木法沙(英語版) - 影評</h1>
   <img src="{{ url_for('static', filename='獅子王：木法沙(英語版).jpg') }}" alt="獅子王：木法沙(英語版)" width="200" height="300">
@@ -14,7 +27,8 @@
     <p>演員	聲演：碧昴絲 (娜娜)、布魯艾菲卡特 (琪雅拉)</p>
   </p>
   <p>
-    **劇情概要:** (Place a detailed plot summary here)
+    **劇情概要:**
+    <p>拉飛奇（約翰·卡尼 配）向辛巴（唐納德·格洛沃 配）和娜娜（碧昂絲 配）的女兒琪拉雅（布魯·艾薇·卡特 配）轉述木法沙（亞倫·皮埃爾 配）的傳奇，彭彭（塞斯·羅根 配）和丁滿（比利·艾希納埃爾 配）帶來標誌性的插科。從木法沙（布雷林·蘭金斯 配）作為孤兒的童年，他獨自在外迷失方向，直到他遇到了富有同情心的皇族血脈繼承者獅子塔卡（提奧·紹莫盧 配）。這次偶遇引發了一場宏大的冒險，一群卓越的不合群者尋找它們的宿命，在逃避一起致命危機之時，它們之間的紐帶將受到考驗</p>
   </p>
   <p>
     **放映場次:**
@@ -43,7 +57,7 @@
     <p>* = 設有首場長春優先優惠</p>
   </div>
   <p>
-    **影評:** (Write your review of the movie here)
+    **影評:**
   </p>
 </div>
 {% endblock %}

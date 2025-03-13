@@ -3,9 +3,23 @@
 {% block title %}「進擊的巨人」完結篇THE LAST ATTACK - 評論{% endblock %}
 
 {% block content %}
+<style>
+    .showtimes table {
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    .showtimes th, .showtimes td {
+        border: 1px solid #ddd;
+        padding: 8px;
+        text-align: left;
+    }
+</style>
+
 <div class="container">
   <h1>「進擊的巨人」完結篇THE LAST ATTACK - 影評</h1>
   <img src="{{ url_for('static', filename='「進擊的巨人」完結篇THE LAST ATTACK.jpg') }}" alt="「進擊的巨人」完結篇THE LAST ATTACK" width="200" height="300">
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
   <p>
     **電影簡介:**
     <p>人類為了躲避巨人威脅而建築高聳巨大城牆，躲在城牆中過著苟且偷生的日子。</p>
@@ -17,7 +31,7 @@
     
     <p>以米卡莎和阿爾敏為首的倖存者們，為了阻止意圖毀滅世界的艾倫，挺身挑戰最後的戰役。</p>
     
-    <p>超人氣動畫《進擊的巨人》The Final Season 完結篇「後篇」重新剪輯，製作成為片長 145 分鐘的劇場版作品， 畫面全面優化並採用戲院規格音效處理，讓動畫昇華為更震撼人心的史詩式作品！</p>
+    <p>超人氣動畫《進擊的巨人》The Final Season 完結篇「後篇」重新剪輯，製作成為片長 145 分鐘的劇場版作品，畫面全面優化並採用戲院規格音效處理，讓動畫昇華為更震撼人心的史詩式作品！</p>
     
     <p>導演    林祐一郎</p>
     <p>演員	聲演：梶裕貴、石川由依、井上麻里奈、谷山紀章、下野紘、神谷浩史</p>
@@ -70,7 +84,7 @@
     <p>* = 指定首映長春優先場</p>
   </div>
   <p>
-    **影評:** (Write your review of the movie here)
+    **影評:**
   </p>
 </div>
 {% endblock %}
